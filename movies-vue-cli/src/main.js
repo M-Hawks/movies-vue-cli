@@ -8,7 +8,7 @@ import mock from './mock-data.js'
 
 let data = {
   movies: mock,
-  favorites: []
+  favorites: new Set()
 }
 
 new Vue({

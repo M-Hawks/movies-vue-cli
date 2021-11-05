@@ -11,28 +11,29 @@
         </div>
     </form>
   </div>
-
+  <DisplayMovies :movies="allthestuff" />
 </div>
 </template>
 
 
 <script>
 
+import DisplayMovies from '@/components/DisplayMovies.vue'
+
 export default {
   name: 'Search',
   components: {
-
+    DisplayMovies
   },
+  props: {
+    movieResults: Array
+  },
+
   data() {
     return {
       searchText: '',
 
-
-
     }
-
-
-
   },
   computed: {
     allthestuff() {
@@ -41,14 +42,15 @@ export default {
 
   },
   methods: {
-    findResults() {
+    async findResults() {
+
       console.log(this.searchText);
       let value = this.searchText;
 
       const url = "https://api.themoviedb.org/3/search/movie?api_key=6b33c7bf2d0169a646f34a5f0595b9f3&language=en-US&query=" + value + "&page=1&include_adult=false";
-      console.log(url);
 
-      fetch(url)
+
+      let response = await fetch(url)
       .then(function(response) {
         return response.json();
       }).then(function(json) {
@@ -56,9 +58,10 @@ export default {
         console.log(json.results[0].title);
         console.log(json.results[0].overview);
 
-        this.movieResults = json.results;
+        return json.results;
 
       });
+      this.movieResults = response;
     }
 
   },
