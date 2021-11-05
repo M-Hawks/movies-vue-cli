@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home-header">
-      <h1>Top 10 Movies</h1>
+      <h1>Our Favorites</h1>
     </div>
 
     <TopTen/>
