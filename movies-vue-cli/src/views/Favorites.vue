@@ -1,27 +1,27 @@
 <template>
-  <div class="home">
-    <div class="home-header">
-      <h1>Our Top 10 Movies</h1>
+  <div class="favorites">
+    <div class="favorites-header">
+      <h1>Your Favorites</h1>
     </div>
 
-    <TopTen/>
+    <FavoritesList/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import TopTen from '@/components/TopTen.vue'
+import FavoritesList from '@/components/FavoritesList.vue'
 
 export default {
-  name: 'Home',
+  name: 'Favorites',
   components: {
-    TopTen
+    FavoritesList
   }
 }
 </script>
 
 <style scoped>
-.home-header {
+.favorites-header {
   display:flex;
   justify-content: center;
   align-items: center;

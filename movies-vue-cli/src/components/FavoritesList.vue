@@ -1,28 +1,27 @@
 <template>
 
-    <div class="top-ten-container">
-        <div class="top-ten-item" v-for="movie in this.$root.$data.movies" v-bind:key="movie.id">
-          <img :src="'/images/'+movie.image">
-          <a>{{movie.title}}</a>
+    <div class="favorites-list-container">
+        <div class="favorites-list-item" v-for="movie in this.$root.$data.favorites" v-bind:key="movie.id">
+          <img :src="'https://image.tmdb.org/t/p/w500'+movie.poster_path">
+          <div class="favorites-list-info">
+            <a class="movie-title">{{movie.title}}</a>
+          </div>
         </div>
     </div>
 
 </template>
 
-
 <script>
 export default {
-  name: 'TopTen',
+  name: 'FavoitesList',
   methods: {
 
   }
 }
-
 </script>
 
-
 <style scoped>
-.top-ten-item {
+.favorites-list-item {
     display:flex;
     align-items: center;
     justify-content: center;
@@ -31,18 +30,19 @@ export default {
     background-color: #dbdbc8;
 }
 
-.top-ten-item img{
+.favorites-list-item img{
     width: 25%;
     flex: 1;
 }
-.top-ten-item a{
+.favorites-list-item div{
     flex:4;
     text-align: center;
 }
 
+
 /* Mobile Styles */
 @media only screen and (max-width: 450px) {
-  .top-ten-item {
+  .favorites-list-item {
       font-size: 1.2em;
       margin: 30px 40px;
   }
@@ -50,7 +50,7 @@ export default {
 
 /* Tablet Styles */
 @media only screen and (min-width: 451px) and (max-width: 960px) {
-  .top-ten-item {
+  .favorites-list-item {
       font-size: 2.5em;
       margin: 30px 75px;
   }
@@ -58,9 +58,12 @@ export default {
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
-  .top-ten-item {
-    font-size: 4.5em;
+  .favorites-list-item {
+    font-size: 1.3em;
     margin: 50px 100px;
+  }
+  .movie-title {
+  font-size: 2em;
   }
 }
 </style>

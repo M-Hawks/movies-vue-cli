@@ -4,16 +4,18 @@
         <div class="top-ten-item" v-for="movie in movies" v-bind:key="movie.id">
           <img :src="'https://image.tmdb.org/t/p/w500'+movie.poster_path">
           <div class="movie-info">
-             <a class="movie-title">{{movie.title}}</a>
-             <p>{{movie.overview}}</p>
-             <button v-on:click="addToFavorites(movie)">add to favorites</button>
+            <a class="movie-title">{{movie.title}}</a>
+            <p>{{movie.overview}}</p>
+            <button v-on:click="addToFavorites(movie)">Add to Favorites</button>
           </div>
         </div>
     </div>
+
 </template>
 
 
 <script>
+
 export default {
   name: 'DisplayMovies',
   methods: {
@@ -21,7 +23,6 @@ export default {
       this.$root.$data.favorites.add(movie);
 
       console.log(this.$root.$data.favorites);
-
     }
 
   },
